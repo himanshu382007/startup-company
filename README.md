@@ -1,4 +1,4 @@
-# NeuroWings Website Frontend
+# Startup Company Website
 **Note**: This repository is **Private**. Do not share source code publicly.
 
 ## Overview
