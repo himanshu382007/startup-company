@@ -1,0 +1,23 @@
+# Netlify Headers Configuration
+# Security headers applied to all routes
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com https://prod.spline.design; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://prod.spline.design wss://prod.spline.design https://unpkg.com; img-src 'self' data: blob: https:; media-src 'self' data: blob:; worker-src 'self' blob:;"
+
+# Build settings
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# SPA redirect — all routes serve index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
